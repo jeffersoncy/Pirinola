@@ -44,20 +44,33 @@ class Partida:
             self.lista_turnos.append(Turno(self.lista_jugadores[n_jugador].get_nombre(), n_turno, self.lista_jugadores[n_jugador].get_plante()))
             resultado_turno = self.lista_turnos[n_turno].retornar_valor_sacado()
             print("Valor ", resultado_turno, 'Turno', n_turno)
-            if (resultado_turno == 'Toma1'):
+            if resultado_turno == 'Toma1':
                 self.acumulado = self.acumulado - self.valor_partida
-                #self.lista_jugadores[n_jugador]
-            elif (resultado_turno == 'Toma2'):
+                valor = self.lista_jugadores[n_jugador].get_plante() + self.valor_partida
+                self.lista_jugadores[n_jugador].set_plante(valor)
+            elif resultado_turno == 'Toma2':
                 self.acumulado = self.acumulado - (2 * self.valor_partida)
-            elif (resultado_turno == 'Pon2'):
+                valor = self.lista_jugadores[n_jugador].get_plante() + (2 * self.valor_partida)
+                self.lista_jugadores[n_jugador].set_plante(valor)
+            elif resultado_turno == 'Pon2':
                 self.acumulado = self.acumulado + (2 * self.valor_partida)
-            elif (resultado_turno == 'Pon1'):
+                valor = self.lista_jugadores[n_jugador].get_plante() - (2 * self.valor_partida)
+                self.lista_jugadores[n_jugador].set_plante(valor)
+            elif resultado_turno == 'Pon1':
                 self.acumulado = self.acumulado + self.valor_partida
-            elif (resultado_turno == 'TodosPonen'):
+                valor = self.lista_jugadores[n_jugador].get_plante() - self.valor_partida
+                self.lista_jugadores[n_jugador].set_plante(valor)
+            elif resultado_turno == 'TodosPonen':
                 self.acumulado = self.acumulado + (self.valor_partida * len(self.lista_jugadores))
-            elif (resultado_turno == 'TomaTodo'):
+                for i in self.lista_jugadores:
+                    valor = i.get_plante() - self.valor_partida
+                    i.set_plante(valor)
+            elif resultado_turno == 'TomaTodo':
+                valor = self.lista_jugadores[n_jugador].get_plante() + (self.acumulado)
+                self.lista_jugadores[n_jugador].set_plante(valor)
                 self.acumulado = 0
             print("Acumulado por Turno: ", self.acumulado)
+            print(self.lista_jugadores[n_jugador].get_plante())
             print("------------------------------------------------------------")
             n_turno = n_turno + 1
             n_jugador = n_jugador + 1

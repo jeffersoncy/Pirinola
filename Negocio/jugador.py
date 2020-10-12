@@ -8,3 +8,6 @@ class Jugador:
 
     def get_plante(self):
         return self.plante
+
+    def set_plante(self,new_valor):
+        self.plante = new_valor
