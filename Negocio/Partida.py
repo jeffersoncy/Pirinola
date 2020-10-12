@@ -7,6 +7,9 @@ class Partida:
         self.valor_partida = valor_partida
         self.lista_jugadores = list()
         self.lista_turnos = list()
+        self.Jugador_Ganador = 0
+        self.Turno_Ganador = 0
+        self.Valor_Total_Ganado = 0
         self.acumulado = self.calcular_acumulado_inicial()
 
 
@@ -24,12 +27,6 @@ class Partida:
     def calcular_acumulado_inicial(self):
         valor = self.valor_partida * len(self.lista_jugadores)
         return valor
-
-
-    #def calcular_acumulado_turno(self):
-        #valor = self.valor_partida * len(self.lista_jugadores)
-        #return valor
-
 
     def add_turno(self, jugador, id_turno):
         self.lista_turnos.append(Turno(jugador, id_turno))
@@ -68,7 +65,11 @@ class Partida:
             elif resultado_turno == 'TomaTodo':
                 valor = self.lista_jugadores[n_jugador].get_plante() + (self.acumulado)
                 self.lista_jugadores[n_jugador].set_plante(valor)
+                self.Jugador_Ganador = self.lista_jugadores[n_jugador].get_nombre()
+                self.Turno_Ganador = n_turno
+                self.Valor_Total_Ganado = self.acumulado
                 self.acumulado = 0
+
             print("Acumulado por Turno: ", self.acumulado)
             print(self.lista_jugadores[n_jugador].get_plante())
             print("------------------------------------------------------------")

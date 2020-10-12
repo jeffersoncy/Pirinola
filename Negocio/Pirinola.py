@@ -2,9 +2,13 @@ from Negocio.Partida import Partida
 from Negocio.jugador import Jugador
 
 class Pirinola:
+    ListPartidas = list()
     def __init__(self,nombre_piri,id_partida,valor_partida):
         self.nombre_piri=nombre_piri
         self.partida = Partida(id_partida,valor_partida)
+
+    def add_partida(self, prmPartida):
+        self.ListPartidas.append(prmPartida)
 
     def iniciar_juego(self):
         self.numero_jugadores=int(input("Digite numero Jugadores"))
