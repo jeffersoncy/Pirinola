@@ -83,4 +83,4 @@ class Partida:
             n_jugador = n_jugador + 1
             if (n_jugador == len(self.lista_jugadores)):
                 n_jugador = 0
-            os.system('pause')
+            #os.system('pause')

@@ -25,18 +25,38 @@ while opc != 4:
         print("IMPRIMIR LISTA DE PARTIDAS")
 
         for k in piri.ListPartidas:
+            print("------------------------------------------------------")
             print("ID Partida: ", k.id_partida)
             print("Valor Partida: ", k.valor_partida)
             print("Jugador Ganador: " + k.Jugador_Ganador)
             print("Valor Ganado: ",k.Valor_Total_Ganado)
+            print("------------------------------------------------------")
 
     if opc == 3:
-        print("NO SE SABE")
+        print("BUSCAR PARTIDA")
+        bus_id = int(input("Ingrese el ID de la partida que desea buscar: "))
+        bus_validar = False
+        bus_indice = 0
+        bus_reIndice = 0
+        for n in piri.ListPartidas:
+            bus_id_actual = getattr(n,"id_partida")
+            if(bus_id_actual == bus_id):
+                bus_validar = True
+                bus_reIndice = bus_indice
+                break
+            bus_indice = bus_indice + 1
+        if(bus_validar == True):
+            print("ID de la partida: ",piri.ListPartidas[bus_reIndice].id_partida)
+            print("Valor de la Partida: ", piri.ListPartidas[bus_reIndice].valor_partida)
+            print("Jugador Ganador: ", piri.ListPartidas[bus_reIndice].Jugador_Ganador)
+            print("Valor Ganado",piri.ListPartidas[bus_reIndice].Valor_Total_Ganado)
+        else:
+            print("El ID ingresado no ha sido encontrado")
 
     print("------------------------MENU PRINCIPAL-----------------------")
     print("1. Jugar partida")
     print("2. Lista de partidas")
-    print("3. no se sabe")
+    print("3. Buscar partida")
     print("4. Salir")
     print("-------------------------------------------------------------")
 
