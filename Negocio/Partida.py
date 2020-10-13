@@ -1,5 +1,6 @@
 from Negocio.Turno import Turno
 from Negocio.jugador import Jugador
+import os
 
 class Partida:
     def __init__(self, id_partida, valor_partida):
@@ -36,6 +37,7 @@ class Partida:
         n_jugador = 0
         n_turno = 0
         self.acumulado = self.valor_partida * len(self.lista_jugadores)
+        print("------------------------------------------------------------")
         while (resultado_turno != 'TomaTodo'):
             print("Lanza jugador", self.lista_jugadores[n_jugador].get_nombre(), ", Plante: ", self.lista_jugadores[n_jugador].get_plante())
             self.lista_turnos.append(Turno(self.lista_jugadores[n_jugador].get_nombre(), n_turno, self.lista_jugadores[n_jugador].get_plante()))
@@ -71,10 +73,14 @@ class Partida:
                 self.acumulado = 0
 
             print("Acumulado por Turno: ", self.acumulado)
-            print(self.lista_jugadores[n_jugador].get_plante())
+            if self.lista_jugadores[n_jugador].get_plante() > 0:
+                print(self.lista_jugadores[n_jugador].get_plante())
+            else:
+                print("Juego Terminado")
+
             print("------------------------------------------------------------")
             n_turno = n_turno + 1
             n_jugador = n_jugador + 1
             if (n_jugador == len(self.lista_jugadores)):
                 n_jugador = 0
-            #os.system('pause')
+            os.system('pause')

@@ -11,9 +11,8 @@ while opc != 4:
     if opc == 1:
         print("JUGAR NUEVA PARTIDA")
         id_partida = input("Ingrese el id de la Partida: ")
-        nom_Pirinola = input("Ingrese el nombre de la Pirinola: ")
         val_Partida = int(input("Ingrese el valor de la Partida: "))
-        piri = Pirinola(nom_Pirinola,id_partida,val_Partida)
+        piri = Pirinola("Juanito",id_partida,val_Partida)
         #piri = Pirinola("Piri de Juan", 1, 2000)
 
         piri.iniciar_juego()
