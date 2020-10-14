@@ -1,20 +1,14 @@
-# This is a sample Python script.
-
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
+"""Presentado por :  Danny Alberto Días Mage
+                     Jefferson Eduardo Campo Yule"""
 from Negocio.Pirinola import Pirinola
 
 opc = 0
 varAuto = 1
-while opc != 4:
+while opc != 5:
     if opc == 1:
         print("JUGAR NUEVA PARTIDA")
-        #id_partida = input("Ingrese el id de la Partida: ")
         val_Partida = int(input("Ingrese el valor de la Partida: "))
         piri = Pirinola("Juanito",varAuto,val_Partida)
-        #piri = Pirinola("Piri de Juan", 1, 2000)
-
         piri.iniciar_juego()
         piri.partida.inicia_turnos()
         part = piri.partida
@@ -22,16 +16,17 @@ while opc != 4:
         varAuto = varAuto + 1
 
     if opc == 2:
-        print("IMPRIMIR LISTA DE PARTIDAS")
-
-        for k in piri.ListPartidas:
-            print("------------------------------------------------------")
-            print("ID Partida: ", k.id_partida)
-            print("Valor Partida: ", k.valor_partida)
-            print("Jugador Ganador: " + k.Jugador_Ganador)
-            print("Valor Ganado: ",k.Valor_Total_Ganado)
-            print("------------------------------------------------------")
-
+        if len(piri.ListPartidas) != 0:
+            print("IMPRIMIR LISTA DE PARTIDAS")
+            for k in piri.ListPartidas:
+                print("------------------------------------------------------")
+                print("ID Partida: ", k.id_partida)
+                print("Valor Partida: ", k.valor_partida)
+                print("Jugador Ganador: " + k.Jugador_Ganador)
+                print("Valor Ganado: ",k.Valor_Total_Ganado)
+                print("------------------------------------------------------")
+        else:
+            print("SIN PARTIDAS")
     if opc == 3:
         print("BUSCAR PARTIDA")
         bus_id = int(input("Ingrese el ID de la partida que desea buscar: "))
@@ -52,12 +47,15 @@ while opc != 4:
             print("Valor Ganado",piri.ListPartidas[bus_reIndice].Valor_Total_Ganado)
         else:
             print("El ID ingresado no ha sido encontrado")
-
+    if opc == 4:
+        piri.ListPartidas.clear()
+        print("Partidas reiniciadas")
     print("------------------------MENU PRINCIPAL-----------------------")
     print("1. Jugar partida")
     print("2. Lista de partidas")
     print("3. Buscar partida")
-    print("4. Salir")
+    print("4. Reiniciar partidas")
+    print("5. Salir")
     print("-------------------------------------------------------------")
 
     opc = input("Digite una opcion: ")

@@ -1,3 +1,5 @@
+"""Presentado por :  Danny Alberto Días Mage
+                     Jefferson Eduardo Campo Yule"""
 class Jugador:
     def __init__(self,nombre,plante):
         self.nombre_jugador = nombre

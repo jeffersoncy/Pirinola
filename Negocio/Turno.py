@@ -1,3 +1,5 @@
+"""Presentado por :  Danny Alberto Días Mage
+                     Jefferson Eduardo Campo Yule"""
 from Negocio.jugador import Jugador
 from random import randint
 

@@ -1,5 +1,6 @@
+"""Presentado por :  Danny Alberto Días Mage
+                     Jefferson Eduardo Campo Yule"""
 from Negocio.Partida import Partida
-from Negocio.jugador import Jugador
 
 class Pirinola:
     ListPartidas = list()
