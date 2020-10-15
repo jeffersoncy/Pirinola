@@ -8,6 +8,7 @@ class Pirinola:
         self.nombre_piri=nombre_piri
         self.partida = Partida(id_partida,valor_partida)
 
+
     def add_partida(self, prmPartida):
         self.ListPartidas.append(prmPartida)
 
