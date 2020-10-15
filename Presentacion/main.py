@@ -7,6 +7,8 @@ varAuto = 1
 while opc != 5:
     if opc == 1:
         print("JUGAR NUEVA PARTIDA")
+        print("Es necesario que los jugadores o participantes")
+        print("tengan un mismo plante para poder jugar")
         val_Partida = int(input("Ingrese el valor de la Partida: "))
         piri = Pirinola("Juanito",varAuto,val_Partida)
         piri.iniciar_juego()
